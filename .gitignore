@@ -93,3 +93,7 @@ Thumbs.db
 # Eclipse files
 .cproject
 .project
+
+# Practice directory
+/practice
+/quick-cplusplus/tutorials
