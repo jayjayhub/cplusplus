@@ -46,7 +46,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # =============================================================================
 
 # Find all source and header files
-file(GLOB project_sources src/*.cpp)
+file(GLOB project_sources src/*.cpp src/*.cc)
 file(GLOB project_headers src/*.h src/*.hpp)
 
 # Optional: Print found files for debugging
@@ -71,6 +71,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang
         -Wpedantic      # Strict standard compliance
         -Wconversion    # Warn on type conversions
         -Wshadow        # Warn on variable shadowing
+        # -std=c++20      # Use C++20 standard
     )
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(${ProjectId} PRIVATE
