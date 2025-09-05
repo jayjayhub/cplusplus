@@ -10,5 +10,7 @@ int main() {
   auto ego_vehicle = data.init_ego_vehicle();
   Ad::Visualize visualize;
   visualize.print_vehicle(ego_vehicle);
+  visualize.print_neighbor_vehicles(data.init_vehicles());
+  visualize.print_scene(ego_vehicle, data.init_vehicles());
   return 0;
 }
