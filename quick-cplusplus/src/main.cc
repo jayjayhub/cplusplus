@@ -1,16 +1,23 @@
-#include <cstring>
 #include <iostream>
-#include <numeric>
+#include <vector>
 
-#include "AdFunctions.h"
-#include "AdTypes.h"
+#include "IteratorLib.h"
 
 int main() {
-  Ad::Data data;
-  auto ego_vehicle = data.init_ego_vehicle();
-  Ad::Visualize visualize;
-  visualize.print_vehicle(ego_vehicle);
-  visualize.print_neighbor_vehicles(data.init_vehicles());
-  visualize.print_scene(ego_vehicle, data.init_vehicles());
+  auto vector = std::vector<int>{1, 2, 3};
+  auto vector_it = vector.begin();
+
+  auto next_it = mystd::next(vector_it);
+  std::cout << "*next_it: " << *next_it << '\n';
+
+  auto prev_it = mystd::prev(next_it);
+  std::cout << "*prev_it: " << *prev_it << '\n';
+
+  mystd::advance(vector_it, 2);
+  std::cout << "advance: " << *vector_it << '\n';
+
+  auto dist = mystd::distance(vector.begin(), vector_it);
+  std::cout << "distance: " << dist << '\n';
+
   return 0;
 }
